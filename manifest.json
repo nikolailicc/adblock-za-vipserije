@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "VipSerije Full AdBlocker",
+  "version": "2.0",
+  "description": "Blocks all ads and popups on vipserije.com.",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "scripting"
+  ],
+  "host_permissions": ["*://vipserije.com/*", "*://*.vipserije.com/*"],
+  "background": { "service_worker": "background.js" },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://vipserije.com/*", "*://*.vipserije.com/*"],
+      "js": ["content.js"],
+      "css": ["style.css"],
+      "run_at": "document_start"
+    }
+  ]
+}
