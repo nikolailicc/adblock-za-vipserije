@@ -26,5 +26,8 @@
       "css": ["style.css"],
       "run_at": "document_start"
     }
-  ]
+  ],
+  "icons": {
+    "48": "icon48x48.ico"
+  }
 }
